@@ -10,3 +10,5 @@ ImporterActor acts as a dispatcher to various importer actors. DummyActor is pro
 # Functionality
 
 1. When application is started, ImporterActor.Start is called that sends messages to all defined actors in that function.
+2. Each actor receives a message and starts an import. When finnished, a message is sent back to ImporterActor.
+3. When all actors have completed, importer is shut down.
