@@ -1,10 +1,9 @@
 package com.importer
 
 import akka.actor.{Actor, ActorLogging, Props}
+import DummyActor._
 
 class DummyActor extends Actor with ActorLogging {
-  import DummyActor._
-
   def receive = {
     case ImporterActor.ImporterMessage(message) => sender() ! process(message)
   }

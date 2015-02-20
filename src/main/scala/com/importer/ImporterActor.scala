@@ -1,10 +1,9 @@
 package com.importer
 
 import akka.actor.{Actor, ActorLogging, Props}
+import ImporterActor._
 
 class ImporterActor extends Actor with ActorLogging {
-  import ImporterActor._
-
   val dummyActor = context.actorOf(DummyActor.props, "dummyActor")
 
   def receive = {
