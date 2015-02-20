@@ -4,7 +4,7 @@ import akka.actor.{Actor, ActorLogging, Props}
 
 class ImporterActor extends Actor with ActorLogging {
   import ImporterActor._
-  
+
   val dummyActor = context.actorOf(DummyActor.props, "dummyActor")
 
   def receive = {

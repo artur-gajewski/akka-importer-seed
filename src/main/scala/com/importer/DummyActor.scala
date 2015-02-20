@@ -6,14 +6,15 @@ class DummyActor extends Actor with ActorLogging {
   import DummyActor._
 
   def receive = {
-    case ImporterActor.ImporterMessage(text) =>
+    case ImporterActor.ImporterMessage(message) => sender() ! process(message)
+  }
 
-      /*
-       Implement data import here
-       */
+  private def process(message: String) = {
 
-      sender() ! DummyMessage(this.getClass.getSimpleName + ": data imported.")
-  }	
+    // Implement your data import here //
+
+    DummyMessage(this.getClass.getSimpleName + ": data imported.")
+  }
 }
 
 object DummyActor {
