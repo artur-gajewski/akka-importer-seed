@@ -8,11 +8,11 @@ class ImporterActor extends Actor with ActorLogging {
   val dummyActor = context.actorOf(DummyActor.props, "dummyActor")
 
   def receive = {
-  	case Start =>
+    case Start =>
       dummyActor ! ImporterMessage("import")
-  	case DummyActor.DummyMessage(message) =>
-  	  log.info(message)
-  	  context.system.shutdown()
+    case DummyActor.DummyMessage(message) =>
+      log.info(message)
+      context.system.shutdown()
   }
 }
 
