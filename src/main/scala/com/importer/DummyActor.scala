@@ -5,7 +5,7 @@ import DummyActor._
 
 class DummyActor extends Actor with ActorLogging {
   def receive = {
-    case ImporterActor.ImporterMessage(message) => sender() ! process(message)
+    case ImporterActor.ImporterMessage(message: String) => sender() ! process(message)
   }
 
   private def process(message: String) = {

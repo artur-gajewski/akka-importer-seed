@@ -9,7 +9,7 @@ class ImporterActor extends Actor with ActorLogging {
   def receive = {
     case Start =>
       dummyActor ! ImporterMessage("import")
-    case DummyActor.DummyMessage(message) =>
+    case DummyActor.DummyMessage(message: String) =>
       log.info(message)
       context.system.shutdown()
   }
